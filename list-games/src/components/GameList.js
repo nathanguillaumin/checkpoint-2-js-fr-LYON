@@ -7,6 +7,7 @@ class GameList extends React.Component {
         this.state = {
             allGames: [],
             listIsLoading: true,
+            bestGames: false,
         }
     }
 
@@ -27,6 +28,10 @@ class GameList extends React.Component {
         const game = this.state.allGames.filter(game =>
             game.id !== gameID)
             this.setState({ allGames: game })
+    }
+
+    handleBestGame = () => {
+        this.setState({ bestGames: !bastGames })
     }
 
     componentDidMount() {
