@@ -1,0 +1,30 @@
+.containerList{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+body{
+  background-color: aquamarine;
+}
+.filter, .buttonHome{
+  background-color:  snow;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 32px;
+  margin: 10px;
+  color: aquamarine;
+}
+.filter:hover, .buttonHome:hover{
+  background-color: aquamarine; /* Green */
+  color:  snow;
+}
+.detailsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detailsContainer img{
+  width: 500px;
+  margin: 20px;
+}

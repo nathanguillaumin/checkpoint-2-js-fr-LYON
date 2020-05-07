@@ -28,8 +28,8 @@ export class GameDetails extends Component {
       return (<p>Loading...</p>)
     }else{
       return (
-        <div>
-          <Link to='/'>Go Home</Link>
+        <div className='detailsContainer'>
+          <button className="buttonHome"><Link to='/'>Go Home</Link></button>
           <h2>{this.state.game.name}</h2>
           {this.state.game.short_screenshots.map(screenShot => <img src={screenShot.image} alt={`sreenshot du jeu ${this.state.game.name}`}/>)}
         </div>

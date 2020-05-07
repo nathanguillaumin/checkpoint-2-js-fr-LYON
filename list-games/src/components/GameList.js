@@ -42,12 +42,14 @@ export class GameList extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleShowBestGames}>{this.state.showBestGames ? 'All games' : 'Best Games'}</button>
-        {this.state.gameList
-        .filter(game => !this.state.showBestGames || game.rating >= 4.5 )
-        .map(game => game.show && <Game infoGame={game} onDelete={this.handleDelete} />)}
-      </div>
+      <>
+        <button className='filter' onClick={this.handleShowBestGames}>{this.state.showBestGames ? 'All games' : 'Best Games'}</button>
+        <div className="containerList">
+          {this.state.gameList
+          .filter(game => !this.state.showBestGames || game.rating >= 4.5 )
+          .map(game => game.show && <Game infoGame={game} onDelete={this.handleDelete} />)}
+        </div>
+      </>
     )
   }
 }
