@@ -17,3 +17,8 @@
 .game img {
   height: 100px;
 }
+
+.game-presentation button {
+  margin: 5px;
+  border-radius: 3px;
+}
