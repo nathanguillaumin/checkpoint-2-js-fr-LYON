@@ -1,0 +1,10 @@
+.screenshot-container img {
+    width:100%;
+}
+.p-with-link {
+    text-align:center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 10px 0;
+}
