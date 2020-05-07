@@ -7,6 +7,8 @@ class GameList extends React.Component {
     super(props);
     this.state = {
       allGameList: [],
+      highRateGames: [],
+      allGames: true
     };
   }
 
@@ -35,19 +37,25 @@ class GameList extends React.Component {
     this.setState({ allGameList: temporaryTable });
   }
 
-   render () {
-   
+  handleRatedGames () {
+    const highRateGames = this.state.allGameList.filter(game => game.rating > 4.5);
+    this.setState({ highRateGames, allGames: !this.state.allGames });
+  }
 
-    const list = this.state.allGameList.map(game =>
+   render () {
+     const userList = (this.state.allGames ? this.state.allGameList : this.state.highRateGames)
+       const list = userList.map(game =>
       <>
-      <Game game={game} />
-      <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>
+        <Game game={game} />
+        <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>
       </>
       );
+     
     return (
       <div>
-      <h1>Welcome to the game list of a non-gamer guy!</h1>
-      {list}
+        <h1>Welcome to the game list of a non-gamer guy!</h1>
+        <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'All games' : 'Best games'}</button>
+        {list}
       </div>
     );
   }
