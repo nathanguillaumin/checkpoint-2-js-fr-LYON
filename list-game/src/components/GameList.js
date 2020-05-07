@@ -33,7 +33,10 @@ class GameList extends React.Component {
       <Game game={game} />
       );
     return (
-      <div>{list}</div>
+      <div>
+      <h1>Welcome to the game list of a non-gamer guy!</h1>
+      {list}
+      </div>
     );
   }
 }

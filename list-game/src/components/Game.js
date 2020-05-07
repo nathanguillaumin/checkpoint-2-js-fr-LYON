@@ -1,10 +1,13 @@
 import React from 'react';
+import './Game.css';
 
 const Game = (props) => {
-  console.log(props);
+  const game = props.game;
   return (
-    <div>
-      {props.game.name}
+    <div className='game'>
+      <h2>{game.name}</h2>
+      <p>Rating: {game.rating}/100</p>
+      <img className='image' src={game.background_image} alt={game.name} />
     </div>
   );
 };
