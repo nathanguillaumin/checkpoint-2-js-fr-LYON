@@ -1,5 +1,6 @@
 import React from 'react';
 import Game from './Game.js';
+import '../styles/gameList.css';
 
 class GameList extends React.Component {
     constructor(props) {
@@ -30,8 +31,8 @@ class GameList extends React.Component {
             this.setState({ allGames: game })
     }
 
-    handleBestGame = () => {
-        this.setState({ bestGames: !bastGames })
+    handleBestGames = () => {
+        this.setState({ bestGames: !this.state.bestGames })
     }
 
     componentDidMount() {
@@ -41,24 +42,30 @@ class GameList extends React.Component {
     render() {
         const allGames = this.state.allGames;
         return (
-            <div className='game-list-container'>
-                {allGames.map(game => (
-                    <Game 
-                        onDeleteGame={this.handleDeleteGame}
-                        allGames={this.state.allGames}
-                        id={game.id} 
-                        slug={game.slug} 
-                        name={game.name} 
-                        background={game.background_image} 
-                        rating={game.rating} 
-                        genre={game.genres}
-                        released={game.released}
-                        color={game.dominant_color}
-                        key={game.id}
-                    />
-                )
-                )}   
-            </div>
+            <>
+                <div className='filter-container'>
+                    <button onClick={this.handleBestGames}>{this.state.bestGames ? 'All Games' : 'Best Games'}</button>
+                </div>
+                <div className='game-list-container'>
+                    {allGames.filter(game => game.rating >= 4.5 || !this.state.bestGames).map(game => (
+                        <Game 
+                            onDeleteGame={this.handleDeleteGame}
+                            getAllGames={this.props.getAllGames}
+                            allGames={this.state.allGames}
+                            id={game.id} 
+                            slug={game.slug} 
+                            name={game.name} 
+                            background={game.background_image} 
+                            rating={game.rating} 
+                            genre={game.genres}
+                            released={game.released}
+                            color={game.dominant_color}
+                            key={game.id}
+                        />
+                    )
+                    )}   
+                </div>
+            </>
         )
     }
 

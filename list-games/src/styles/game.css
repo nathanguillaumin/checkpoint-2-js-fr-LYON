@@ -31,6 +31,9 @@
     overflow:hidden;
     background-size:150%;
 }
+.game-container .game-info-container a {
+    z-index:99999;
+}
 .game-container .game-info-container::before {
     content:'';
     position:absolute;
@@ -47,13 +50,18 @@
 }
 .game-container .game-info-container button {
     z-index:999;
-    background-color:red;
     color:white;
     border:none;
     width: 70px;
     height: 30px;
     -webkit-appearance: none;
     padding: 0px;
+}
+.game-container .game-info-container .delete-game {
+    background-color:red;
+}
+.game-container .game-info-container .see-media {
+    background-color:#799905;
 }
 .game-container .game-info-container .info-category {
     font-weight:bold;
