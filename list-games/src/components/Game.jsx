@@ -14,7 +14,7 @@ class Game extends React.Component {
     render() {
         return (
             <ul>
-                {this.state..map(person => <li>{person.name}</li>)}
+                {this.state.map(person => <li>{person.name}</li>)}
             </ul>
         )
     }

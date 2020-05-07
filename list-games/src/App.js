@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
-import Game from './components/Game';
+//import Game from './components/Game';
+import axios from 'axios';
 
 class App extends Component {
   constructor (props) {
@@ -19,17 +20,19 @@ class App extends Component {
       .then(res => res.data)
       .then(data => {
         return {
-          name: game.name,
-          img:
         
-      }})
+      }
+    })
   }
- 
-  return (
-    <div className="App">
- 
-    </div>
-  );
+
+  render () {
+    return (
+      <div className="App">
+  
+      </div>
+    );
+  }
 }
+
 
 export default App;
