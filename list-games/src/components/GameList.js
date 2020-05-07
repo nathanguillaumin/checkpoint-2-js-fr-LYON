@@ -1,43 +1,22 @@
 import React from "react";
 import Game from "./Game";
-import Axios from "axios";
 import "./GameList.css";
 
 class GameList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: null,
       bestGames: false,
     };
   }
-
-  getList = async () => {
-    const list = await Axios.get(
-      "https://wild-games.herokuapp.com/api/v1"
-    ).catch((e) => {
-      return `Nous avons rencontrer une erreur lors du chargement des jeux ! -> \n ${e}`;
-    });
-    this.setState({ list: list.statusText === "OK" ? list.data : list });
-  };
 
   handleBests = () => {
     this.setState({ bestGames: !this.state.bestGames });
   };
 
-  removeGame = (e) => {
-    let list = this.state.list.slice();
-    list = list.filter((item) => item.id !== parseInt(e.target.id));
-    this.setState({ list });
-    console.log(list);
-  };
-
-  componentDidMount() {
-    this.getList();
-  }
-
   render() {
-    const { list, bestGames } = this.state;
+    const { bestGames } = this.state;
+    const { list } = this.props;
 
     return (
       <>
@@ -51,7 +30,7 @@ class GameList extends React.Component {
           ) : list !== null ? (
             !bestGames ? (
               list.map((game) => (
-                <Game {...game} key={game.id} remove={this.removeGame} />
+                <Game {...game} key={game.id} remove={this.props.remove} />
               ))
             ) : (
               list
