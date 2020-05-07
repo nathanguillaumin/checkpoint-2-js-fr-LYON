@@ -28,9 +28,21 @@ class GameList extends React.Component {
     this.getData();
   }
 
-  render () {
+  handleDeleteGame (gameId) {
+    const temporaryTable = this.state.allGameList;
+    const indexOfDelElement = temporaryTable.findIndex((game) => game.id === gameId);
+    temporaryTable.splice(indexOfDelElement,1);
+    this.setState({ allGameList: temporaryTable });
+  }
+
+   render () {
+   
+
     const list = this.state.allGameList.map(game =>
+      <>
       <Game game={game} />
+      <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>
+      </>
       );
     return (
       <div>
