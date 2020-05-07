@@ -35,13 +35,16 @@ class App extends Component {
   }
 
   deleteGame = (id) => {
+    console.log(id)
     this.setState({games : [...this.state.games.filter(game => game.id !== id)]})
-}
+  }
 
   render () {
     return (
       <div className='App'>
-        <GameList gameList={this.state.games} deleteGame={this.deleteGame} />
+        <GameList gameList={this.state.games}
+        deleteGame={this.deleteGame}
+        />
       </div>
     )
   }

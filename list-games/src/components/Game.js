@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Game (props) {
+const Game = (props) => {
   return (
     <div className='gameCard'>
       <h3>{props.name}</h3>
