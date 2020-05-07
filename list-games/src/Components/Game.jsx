@@ -9,10 +9,10 @@ function Game ({data}) {
         </h1>
         <img src={data.background_image} alt="game img" />          
         <p>Rating : {data.rating}</p>
+        <input type="button" value='X'/>
     </div>
     </>
   )
-
 }
 
 

@@ -23,13 +23,18 @@ class Gamelist extends React.Component {
     this.getGame()
   }
 
+  handleDelete = () => {
+    const gameListAfterDelete = this.state.games
+    gameListAfterDelete.splice(1)
+    this.setState({games:gameListAfterDelete})
+  }
+
   render() {
-    const games = this.state.games
-    
+    const games = this.state.games    
     return (
       <div>
         {games.map((game) => {
-        return <Game data={game}/>
+        return <Game data={game} remove={this.gameListAfterDelete}/>
           
         })
       }
