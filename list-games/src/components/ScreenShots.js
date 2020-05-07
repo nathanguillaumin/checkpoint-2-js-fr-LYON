@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function ScreenShots ({ gameList }) {
+function ScreenShots (props) {
 
-  console.log(gameList[0])
+  const params = props.match.params
+  console.log(params.id)
+  const currentGame = props.gameList.filter(game => game.id === parseInt(params.id))
+  console.log(currentGame)
   
   return (
   <div className='screen-page'>
     <Link to="/">Retourner à la liste des jeux</Link>
     <div className='screen-container'>
-      <p>Voici les screenshots disponibles pour le jeu </p>
+  <p>Voici les screenshots disponibles pour le jeu {currentGame.name}</p>
     </div>
   </div>
   )}
