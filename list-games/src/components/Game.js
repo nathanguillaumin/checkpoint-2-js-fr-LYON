@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Game.css';
+import { Link } from "react-router-dom";
 
 const Game = ({ gameList }) => {
 
@@ -27,14 +28,15 @@ const Game = ({ gameList }) => {
               <div className='game-presentation'>
                 <h1>{game.name}</h1>
                 <p>Note : {game.rating}</p>
-                <button 
+                <Link to={`/jeu/screenshots/${game.id}`} target='_blank'>Voir les screenshot du jeu</Link>
+                <button
                   onClick={() => {
                     const id = customGameList.indexOf(game)
-                    setCustomGameList(customGameList.filter( (game, index) =>  index !== id))
+                    setCustomGameList(customGameList.filter((game, index) => index !== id))
                   }}
                 >Supprimer ce jeu de la liste</button>
               </div>
-              <img src={game.background_image} alt={game.name}/>
+              <img src={game.background_image} alt={game.name} />
             </div>
           )
         })}
