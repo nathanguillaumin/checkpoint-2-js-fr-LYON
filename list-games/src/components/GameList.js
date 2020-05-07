@@ -9,7 +9,7 @@ class GameList extends React.Component {
 
   render () {
     return (
-      <Game />
+      <Game games={this.props} />
     );
   }
 }

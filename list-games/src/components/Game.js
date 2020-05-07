@@ -8,7 +8,17 @@ class Game extends React.Component {
 
   render () {
     return (
-      <div>Test</div>
+      <div className='game'>
+        {this.props.map(game => {
+          return (
+            <article key={game.name}>
+              <h3>{game.name}</h3>
+              <img src={game.background_image} alt={game.name} />
+              <p>{game.rating}</p>
+            </article>
+          );
+        })}
+      </div>
     );
   }
 }
