@@ -4,10 +4,22 @@ import './Game.css';
 const Game = ({ gameList }) => {
 
   const [customGameList, setCustomGameList] = useState(gameList);
+  const [textButton, setTextButton] = useState(true)
 
   return (
     <>
       <p>Voici la liste des jeux disponibles</p>
+      <button
+        onClick={() => {
+          if (textButton) {
+            setCustomGameList(customGameList.filter(game => game.rating > 4.5))
+            setTextButton(!textButton)
+          } else {
+            setCustomGameList(gameList)
+            setTextButton(!textButton)
+          }
+        }}
+      >{textButton ? 'Best Games' : 'All Games'}</button>
       <div className='game-container'>
         {customGameList.map(game => {
           return (
