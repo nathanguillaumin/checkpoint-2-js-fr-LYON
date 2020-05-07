@@ -25,6 +25,13 @@ class GameList extends React.Component {
     this.setState({ bestGames: !this.state.bestGames });
   };
 
+  removeGame = (e) => {
+    let list = this.state.list.slice();
+    list = list.filter((item) => item.id !== parseInt(e.target.id));
+    this.setState({ list });
+    console.log(list);
+  };
+
   componentDidMount() {
     this.getList();
   }
@@ -43,11 +50,15 @@ class GameList extends React.Component {
             <div>{list}</div>
           ) : list !== null ? (
             !bestGames ? (
-              list.map((game) => <Game {...game} key={game.id} />)
+              list.map((game) => (
+                <Game {...game} key={game.id} remove={this.removeGame} />
+              ))
             ) : (
               list
                 .filter((item) => item.rating >= 4.5)
-                .map((game) => <Game {...game} key={game.id} />)
+                .map((game) => (
+                  <Game {...game} key={game.id} remove={this.removeGame} />
+                ))
             )
           ) : (
             <h2>Loading ...</h2>
