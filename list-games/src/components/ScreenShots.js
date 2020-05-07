@@ -14,7 +14,7 @@ function ScreenShots (props) {
     <Link to="/">Retourner à la liste des jeux</Link>
     <p>Voici les screenshots disponibles pour le jeu {currentGame[0].name}</p>
     <div className='screen-container'>
-      {currentGame[0].short_screenshots.map(screen => <li> <img src={screen.image} /></li>)}
+      {currentGame[0].short_screenshots.map(screen => <li key={screen.id}> <img src={screen.image} /></li>)}
     </div>
   </div>
   )}
