@@ -8,6 +8,7 @@ class App extends React.Component {
     super();
     this.state = {
       gameList: [],
+      filter: false,
     }
   }
   componentDidMount() {
@@ -24,6 +25,10 @@ class App extends React.Component {
     })
   };
 
+  filtered = () => {
+    this.setState((prevState) => {return {filter: !prevState.filter}})
+  };
+
   handleClick = (e) => {
     const event = e.target.id;
     const index = this.state.gameList.findIndex(event)
@@ -31,9 +36,14 @@ class App extends React.Component {
   };
 
   render() {
+    const {gameList, filter} = this.state;
+    const filteredGame = gameList
+    .filter(g => !filter || g.rating >= 4.5)
+    console.log(filteredGame);
   return (
     <div>
-      <GameList game={this.state.gameList} handleClick={this.handleClick} />
+      <button onClick={this.filtered}>best game</button>
+      <GameList game={filteredGame} handleClick={this.handleClick} />
     </div>
   );
   }
