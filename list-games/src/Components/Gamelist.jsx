@@ -34,7 +34,7 @@ class Gamelist extends React.Component {
     return (
       <div>
         {games.map((game, id) => {
-        return <Game data={game} remove={this.gameListAfterDelete} id={id}/>
+        return <Game data={game} remove={this.handleDelete} id={id}/>
           
         })
       }
