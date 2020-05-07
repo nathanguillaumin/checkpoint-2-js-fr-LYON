@@ -7,8 +7,9 @@ function GameScreenshots(props) {
     return (
         <div className='screenshot-container'>
             {props.allGames.filter(singleGame => singleGame.slug === params.GameSlug).map(singleGame => (
-                <div className='hello'>{singleGame.name}</div>
-            ))}
+                singleGame.short_screenshots.map(singleScreenShot => (
+                <img className='media' src={singleScreenShot.image}/>
+            ))))}
         </div>
     )
 }
