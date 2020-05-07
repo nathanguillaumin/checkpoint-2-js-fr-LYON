@@ -1,5 +1,6 @@
 import React from "react";
-import Axios from "axios";
+import "./Details.css";
+import { Link } from "react-router-dom";
 
 class Details extends React.Component {
   constructor(props) {
@@ -9,23 +10,40 @@ class Details extends React.Component {
     };
   }
 
-  getGameDetails = async () => {
-    const game = await (
-      await Axios.get("https://wild-games.herokuapp.com/api/v1")
-    ).data.filter(
-      (item) => item.id === parseInt(this.props.match.params.id) && item
+  getGameDetails = () => {
+    const index = this.props.list.findIndex(
+      (item) => item.id === parseInt(this.props.match.params.id)
     );
+    const game = this.props.list[index];
     this.setState({ game });
+    console.log(game);
   };
 
   componentDidMount() {
     this.getGameDetails();
   }
   render() {
+    const game = this.state.game;
     return (
       <>
-        {this.state.game !== null ? (
-          <h1>{this.state.game}</h1>
+        {game !== null ? (
+          <main className="details">
+            <Link to="/">
+              <button>{"<- Back"}</button>
+            </Link>
+            <h1>{game.name}</h1>
+            <img
+              className="poster"
+              src={game.background_image}
+              alt={game.name}
+            />
+            <h2>screenshots</h2>
+            <div className="screenshots">
+              {game.short_screenshots.map((img) => {
+                return <img src={img.image} alt={game.name} />;
+              })}
+            </div>
+          </main>
         ) : (
           <p>Loading ...</p>
         )}

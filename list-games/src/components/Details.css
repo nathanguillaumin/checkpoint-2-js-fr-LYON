@@ -1,0 +1,32 @@
+.details {
+  width: 100%;
+}
+
+.details img.poster {
+  width: 60%;
+  margin-bottom: 54px;
+  border-radius: 4px;
+}
+
+.details .screenshots {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.details .screenshots img {
+  width: 350px;
+  margin: 24px;
+}
+
+.details button {
+  background-color: rgb(9, 206, 163);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-size: 1.2em;
+}

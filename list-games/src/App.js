@@ -37,22 +37,26 @@ class App extends React.Component {
       <Router>
         <main className="App">
           <h1>Hello Wild Checkpoint 2</h1>
-          <Switch>
-            <Route exact path="/">
-              <GameList
-                getList={this.getList}
-                remove={this.removeGame}
-                {...this.state}
+          {this.state.list !== null ? (
+            <Switch>
+              <Route exact path="/">
+                <GameList
+                  getList={this.getList}
+                  remove={this.removeGame}
+                  {...this.state}
+                />
+              </Route>
+              <Route
+                exact
+                path="/:id/:slug"
+                render={(routeProps) => (
+                  <Details {...routeProps} list={this.state.list} />
+                )}
               />
-            </Route>
-            <Route
-              exact
-              path="/:id/:slug"
-              render={(routeProps) => (
-                <Details {...routeProps} {...this.state.list} />
-              )}
-            />
-          </Switch>
+            </Switch>
+          ) : (
+            <h1>Loading ...</h1>
+          )}
         </main>
       </Router>
     );
