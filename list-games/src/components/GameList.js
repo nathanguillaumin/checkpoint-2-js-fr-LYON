@@ -1,6 +1,7 @@
 import React from "react";
 import Game from "./Game";
 import Axios from "axios";
+import "./GameList.css";
 
 class GameList extends React.Component {
   constructor(props) {
@@ -37,19 +38,21 @@ class GameList extends React.Component {
         <button onClick={this.handleBests}>
           {bestGames ? "All Games" : "Best Games"}
         </button>
-        {typeof list === "string" ? (
-          <div>{list}</div>
-        ) : list !== null ? (
-          !bestGames ? (
-            list.map((game) => <Game {...game} key={game.id} />)
+        <section className="gamelist">
+          {typeof list === "string" ? (
+            <div>{list}</div>
+          ) : list !== null ? (
+            !bestGames ? (
+              list.map((game) => <Game {...game} key={game.id} />)
+            ) : (
+              list
+                .filter((item) => item.rating >= 4.5)
+                .map((game) => <Game {...game} key={game.id} />)
+            )
           ) : (
-            list
-              .filter((item) => item.rating >= 4.5)
-              .map((game) => <Game {...game} key={game.id} />)
-          )
-        ) : (
-          <h2>Loading ...</h2>
-        )}
+            <h2>Loading ...</h2>
+          )}
+        </section>
       </>
     );
   }
