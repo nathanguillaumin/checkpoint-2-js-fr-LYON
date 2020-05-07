@@ -4,7 +4,8 @@ import Game from './Game'
 
 class Gamelist extends React.Component {
   state = {
-    games : []
+    games : [],
+    filter : false
   }
 
 
@@ -29,15 +30,29 @@ class Gamelist extends React.Component {
     this.setState({games:gameListAfterDelete})
   }
 
+  showBestGames = () => {
+    this.setState ({filter : !this.state.filter})
+  }
+
   render() {
-    const games = this.state.games    
+    const games = this.state.games   
+    const filter = this.state.filter 
     return (
       <div>
-        {games.map((game, id) => {
-        return <Game data={game} remove={this.handleDelete} id={id}/>
+        <input type ="button" value={filter ? "All Games" : "Best Games"} onClick={this.showBestGames}/>
+          {filter ? 
+            games.filter(game => {
+            return game.rating >= 4.5
+            })
+            .map((game, id) => {
+            return <Game data={game} remove={this.handleDelete} id={id} />
+            })            
+            :        
+            games.map((game, id) => {
+            return <Game data={game} remove={this.handleDelete} id={id}/>
           
         })
-      }
+        }
       </div>
     )
   }
