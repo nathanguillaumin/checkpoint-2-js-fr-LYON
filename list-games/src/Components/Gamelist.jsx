@@ -23,9 +23,9 @@ class Gamelist extends React.Component {
     this.getGame()
   }
 
-  handleDelete = () => {
+  handleDelete = (id) => {
     const gameListAfterDelete = this.state.games
-    gameListAfterDelete.splice(1)
+    gameListAfterDelete.splice(id, 1)
     this.setState({games:gameListAfterDelete})
   }
 
@@ -33,8 +33,8 @@ class Gamelist extends React.Component {
     const games = this.state.games    
     return (
       <div>
-        {games.map((game) => {
-        return <Game data={game} remove={this.gameListAfterDelete}/>
+        {games.map((game, id) => {
+        return <Game data={game} remove={this.gameListAfterDelete} id={id}/>
           
         })
       }

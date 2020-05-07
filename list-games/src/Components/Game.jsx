@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Game ({data}) {
+function Game ({data, remove, id}) {
   return (
     <>
       <div>
@@ -9,7 +9,7 @@ function Game ({data}) {
         </h1>
         <img src={data.background_image} alt="game img" />          
         <p>Rating : {data.rating}</p>
-        <input type="button" value='X'/>
+        <input type="button" value='X' onClick={()=>remove(id)}/>
     </div>
     </>
   )
