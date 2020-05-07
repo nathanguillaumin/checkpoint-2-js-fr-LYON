@@ -49,7 +49,7 @@ class App extends React.Component {
               exact
               path="/:id/:slug"
               render={(routeProps) => (
-                <Details {...routeProps} {...this.state} />
+                <Details {...routeProps} {...this.state.list} />
               )}
             />
           </Switch>
