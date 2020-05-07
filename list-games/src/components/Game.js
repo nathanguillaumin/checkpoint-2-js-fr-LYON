@@ -6,7 +6,7 @@ function Game (props) {
       <p>Name: {props.name}</p>
       <img src={props.background_image} alt={props.name} />
       <p>{props.rating}</p>
-      <button >Supprimer</button>
+      <button onClick={props.handleClick}>Supprimer</button>
     </div>
   )
 }

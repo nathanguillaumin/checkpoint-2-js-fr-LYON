@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      chose: [],
+      gameList: [],
     }
   }
   componentDidMount() {
@@ -20,13 +20,20 @@ class App extends React.Component {
     .then(res => res.data)
 
     .then(data => {
-      this.setState({chose: data});
+      this.setState({gameList: data});
     })
   };
+
+  handleClick = (e) => {
+    const event = e.target.id;
+    const index = this.state.gameList.findIndex(event)
+    this.setState({gameList: this.state.gameList.slice(index,0)})
+  };
+
   render() {
   return (
     <div>
-      <GameList game={this.state.chose} />
+      <GameList game={this.state.gameList} handleClick={this.handleClick} />
     </div>
   );
   }
