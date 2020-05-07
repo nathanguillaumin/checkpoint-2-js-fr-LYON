@@ -9,7 +9,11 @@ class GameList extends React.Component {
 
   render () {
     return (
-      <Game games={this.props} />
+      <div className='game-list'>
+        {this.props.games.map(game => (
+          <Game name={game.name} img={game.background_image} rate={game.rating} key={game.id} />
+        ))}
+      </div>
     );
   }
 }
