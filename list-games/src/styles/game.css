@@ -1,4 +1,13 @@
-.game-banner {
+.game-container {
+    width:100%;
+    height:150px;
+    transition:all 0.2s ease-in-out;
+    overflow:hidden;
+}
+.game-container:hover {
+    height:230px;
+}
+.game-container .game-banner {
     height:150px;
     width:100%;
     background-position:center;
@@ -9,4 +18,41 @@
     justify-content:center;
     align-items:center;
     text-shadow:0 0 2px black;
+}
+.game-container .game-info-container {
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    width:100%;
+    height:80px;
+    color:white;
+    font-size:14px;
+    position:relative;
+    overflow:hidden;
+    background-size:150%;
+}
+.game-container .game-info-container::before {
+    content:'';
+    position:absolute;
+    top:-40px;
+    left:-40px;
+    width:150%;
+    height:200%;
+    z-index:1;
+    filter:blur(1.5em);
+    background-image:url(https://media.rawg.io/media/games/8e0/8e032ac4faf1136e7d708bb3ac61af23.jpg);
+}
+.game-container .game-info-container p {
+    z-index:999;
+}
+.game-container .game-info-container button {
+    z-index:999;
+    background-color:red;
+    color:white;
+    border:none;
+}
+.game-container .game-info-container .info-category {
+    font-weight:bold;
+    display:block;
+
 }

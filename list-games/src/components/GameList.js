@@ -6,7 +6,7 @@ class GameList extends React.Component {
         super(props);
         this.state = {
             allGames: [],
-            listIsLoading: true
+            listIsLoading: true,
         }
     }
 
@@ -23,6 +23,12 @@ class GameList extends React.Component {
         })
     }
 
+    handleDeleteGame = gameID => {
+        const game = this.state.allGames.filter(game =>
+            game.id !== gameID)
+            this.setState({ allGames: game })
+    }
+
     componentDidMount() {
         this.getGameList();
     }
@@ -33,14 +39,19 @@ class GameList extends React.Component {
             <div className='game-list-container'>
                 {allGames.map(game => (
                     <Game 
+                        onDeleteGame={this.handleDeleteGame}
+                        allGames={this.state.allGames}
                         id={game.id} 
                         slug={game.slug} 
                         name={game.name} 
                         background={game.background_image} 
                         rating={game.rating} 
                         genre={game.genres}
+                        released={game.released}
+                        color={game.dominant_color}
+                        key={game.id}
                     />
-                )  
+                )
                 )}   
             </div>
         )
