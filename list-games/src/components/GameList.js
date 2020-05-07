@@ -1,4 +1,5 @@
 import React from 'react';
+import Game from './Game.js';
 
 class GameList extends React.Component {
     constructor(props) {
@@ -27,9 +28,13 @@ class GameList extends React.Component {
     }
 
     render() {
+        const allGames = this.state.allGames;
         return (
             <div className='game-list-container'>
-
+                {allGames.map(game => (
+                    <Game id={game.id} slug={game.slug} name={game.name}/>
+                )  
+                )}   
             </div>
         )
     }
