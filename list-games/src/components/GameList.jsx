@@ -10,5 +10,4 @@ function GameList(game) {
     );
 }
 
-
 export default GameList;

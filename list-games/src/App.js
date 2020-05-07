@@ -22,7 +22,7 @@ class App extends Component {
         return {
           name: game.name,
           img: game.img,
-          bgimg: game.genres.img,
+          bgimg: game.genres.image_background,
           rating: game.rating,
           genreName: game.genres.name
         }
@@ -37,6 +37,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
