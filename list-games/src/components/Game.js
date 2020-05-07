@@ -28,7 +28,7 @@ const Game = ({ gameList }) => {
               <div className='game-presentation'>
                 <h1>{game.name}</h1>
                 <p>Note : {game.rating}</p>
-                <Link to={`/jeu/screenshots/${game.id}`}>Voir les screenshot du jeu</Link>
+                <Link to={`/jeu/screenshots/${game.id}`}>Voir les screenshots du jeu</Link>
                 <button
                   onClick={() => {
                     const id = customGameList.indexOf(game)
