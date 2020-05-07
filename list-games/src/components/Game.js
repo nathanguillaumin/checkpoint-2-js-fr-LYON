@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Game (props) {
   return (
@@ -6,7 +7,10 @@ function Game (props) {
       <p>Name: {props.name}</p>
       <img src={props.background_image} alt={props.name} />
       <p>{props.rating}</p>
-      <button onClick={props.handleClick}>Supprimer</button>
+      <Link to={`/jeu/screenshots/${props.id}`}>
+      <button>View more</button>
+      </Link>
+      <button onClick={() => props.handleClick(props.id)}>Supprimer</button>
     </div>
   )
 }
