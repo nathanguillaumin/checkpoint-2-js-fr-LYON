@@ -47,7 +47,7 @@ class GameList extends React.Component {
        const list = userList.map(game =>
       <>
         <Game game={game} />
-        <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>
+        {this.state.allGames && <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>}
       </>
       );
      
