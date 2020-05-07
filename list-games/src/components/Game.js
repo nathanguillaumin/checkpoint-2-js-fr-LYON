@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/game.css';
 
 class Game extends React.Component {
     constructor(props) {
@@ -11,7 +12,10 @@ class Game extends React.Component {
     render() {
         return (
             <div className={this.props.slug}>
-                <p>{this.props.name}</p>
+                <div className='game-banner' style={{backgroundImage: `url(${this.props.background})`}}>
+                    <h2>{this.props.name}</h2>
+                </div>
+                
             </div>
         )
     }

@@ -1,0 +1,12 @@
+.game-banner {
+    height:150px;
+    width:100%;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-shadow:0 0 2px black;
+}

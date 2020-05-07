@@ -32,7 +32,14 @@ class GameList extends React.Component {
         return (
             <div className='game-list-container'>
                 {allGames.map(game => (
-                    <Game id={game.id} slug={game.slug} name={game.name}/>
+                    <Game 
+                        id={game.id} 
+                        slug={game.slug} 
+                        name={game.name} 
+                        background={game.background_image} 
+                        rating={game.rating} 
+                        genre={game.genres}
+                    />
                 )  
                 )}   
             </div>
