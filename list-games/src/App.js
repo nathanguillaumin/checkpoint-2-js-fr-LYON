@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Component } from 'react';
-import Game from './components/Game';
 import axios from 'axios';
-//import GameList from './components/GameList';
+import GameList from './components/GameList';
 
 class App extends Component {
   constructor (props) {
@@ -12,7 +11,6 @@ class App extends Component {
       name: '',
       background_image: '',
       rating: ''
-
     };
   }
 
@@ -26,12 +24,12 @@ class App extends Component {
           img: game.img,
           bgimg: game.genres.img,
           rating: game.rating,
-          genreName: game.genre.name
-        };
-      })
-  } 
+          genreName: game.genres.name
+        }
+      })}
+  }
 
-  render () {
+  render() {
     return (
       <div className="App">
         <Game />
