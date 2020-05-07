@@ -12,12 +12,6 @@ export class GameList extends Component {
     this.getGamesFromAPI()
   }
 
-  // getGamesFromAPI = async () => {
-  //   const gameList = await Axios.get(
-  //     `https://wild-games.herokuapp.com/api/v1`
-  //   ).then((response) => response.data)
-  //   this.setState({ gameList });
-  // };
   getGamesFromAPI = async () => {
     await Axios.get(`https://wild-games.herokuapp.com/api/v1`)
     .then((response) => response.data)
