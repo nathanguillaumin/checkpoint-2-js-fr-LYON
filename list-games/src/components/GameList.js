@@ -4,9 +4,9 @@ import Game from './Game'
 const GameList = (props) => {
   return (
     <div className='gameList'>
-      {props.gameList.map((game , index) =>
+      {props.gameList.map((game, id) =>
         <Game 
-          key={index} 
+          key={id} 
           name={game.name} 
           img={game.img} 
           rating={game.rating} 
