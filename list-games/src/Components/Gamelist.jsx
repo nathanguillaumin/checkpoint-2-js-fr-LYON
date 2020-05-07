@@ -1,5 +1,6 @@
 import  React from 'react'
 import axios from 'axios'
+import Game from './Game'
 
 class Gamelist extends React.Component {
   state = {
@@ -18,22 +19,23 @@ class Gamelist extends React.Component {
     })
   }
 
-  render() {
-    return (
-      <div>
-
-
-      </div>
-
-
-
-
-
-
-
-    )
+  componentDidMount = () => {
+    this.getGame()
   }
 
+  render() {
+    const games = this.state.games
+    
+    return (
+      <div>
+        {games.map((game) => {
+        return <Game data={game}/>
+          
+        })
+      }
+      </div>
+    )
+  }
 
 }
 
