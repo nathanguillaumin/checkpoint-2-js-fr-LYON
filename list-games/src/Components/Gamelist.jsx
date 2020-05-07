@@ -1,6 +1,7 @@
 import  React from 'react'
 import axios from 'axios'
 import Game from './Game'
+import './Gamelist.css'
 
 class Gamelist extends React.Component {
   state = {
@@ -39,7 +40,7 @@ class Gamelist extends React.Component {
     const filter = this.state.filter 
     return (
       <div>
-        <input type ="button" value={filter ? "All Games" : "Best Games"} onClick={this.showBestGames}/>
+        <input className='myButton' type ="button" value={filter ? "All Games" : "Best Games"} onClick={this.showBestGames}/>
           {filter ? 
             games.filter(game => {
             return game.rating >= 4.5

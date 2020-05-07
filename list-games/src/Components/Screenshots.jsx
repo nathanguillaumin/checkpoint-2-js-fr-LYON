@@ -1,8 +1,9 @@
-import React from 'react'
+//import React from 'react'
+//import axios from 'axios'
+//import {Link} from 'react-router-dom'
 
-
-class Screenshots extends React.Component{
-
+function Screenshots () {
+  return "game over"
 }
 
 export default Screenshots;
