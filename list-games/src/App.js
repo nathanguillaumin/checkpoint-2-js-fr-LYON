@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
-//import Game from './components/Game';
+import Game from './components/Game';
 import axios from 'axios';
+//import GameList from './components/GameList';
 
 class App extends Component {
   constructor (props) {
@@ -15,20 +15,21 @@ class App extends Component {
     };
   }
 
+  /*
   componentDidMount() {
     axios.get(`https://wild-games.herokuapp.com/api/v1`)
       .then(res => res.data)
       .then(data => {
         return {
         
-      }
-    })
-  }
+        };
+      })
+  } */
 
   render () {
     return (
       <div className="App">
-  
+        <Game />
       </div>
     );
   }
