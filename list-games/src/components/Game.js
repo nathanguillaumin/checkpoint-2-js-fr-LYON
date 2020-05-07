@@ -4,6 +4,8 @@ function Game (props) {
   return (
     <div>
       <p>Name: {props.name}</p>
+      <img src={props.background_image} alt={props.name} />
+      <p>{props.rating}</p>
       <button >Supprimer</button>
     </div>
   )
