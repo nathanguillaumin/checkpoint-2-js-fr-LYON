@@ -12,19 +12,24 @@ class App extends Component {
       name: '',
       background_image: '',
       rating: ''
+
     };
   }
 
-  /*
   componentDidMount() {
     axios.get(`https://wild-games.herokuapp.com/api/v1`)
-      .then(res => res.data)
+      .then(response => response.data)
       .then(data => {
+        const tabGame = data.map(game => {
         return {
-        
+          name: game.name,
+          img: game.img,
+          bgimg: game.genres.img,
+          rating: game.rating,
+          genreName: game.genre.name
         };
       })
-  } */
+  } 
 
   render () {
     return (
