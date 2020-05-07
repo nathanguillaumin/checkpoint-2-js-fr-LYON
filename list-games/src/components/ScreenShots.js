@@ -11,8 +11,10 @@ function ScreenShots (props) {
   return (
   <div className='screen-page'>
     <Link to="/">Retourner à la liste des jeux</Link>
+    <p>Voici les screenshots disponibles pour le jeu {currentGame[0].name}</p>
     <div className='screen-container'>
-  <p>Voici les screenshots disponibles pour le jeu {currentGame.name}</p>
+      
+      
     </div>
   </div>
   )}
