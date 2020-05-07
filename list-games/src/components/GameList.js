@@ -42,7 +42,7 @@ class GameList extends React.Component {
     return (
       <>
         <h2>See our Amazing Game List !</h2>
-        <button onClick={this.handleBests}>
+        <button className="sort" onClick={this.handleBests}>
           {bestGames ? "All Games" : "Best Games"}
         </button>
         <section className="gamelist">
