@@ -1,7 +1,9 @@
 import React from "react";
 import "./App.css";
 import Axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GameList from "./components/GameList";
+import Details from "./components/Details";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,14 +34,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <main className="App">
-        <h1>Hello Wild Checkpoint 2</h1>
-        <GameList
-          getList={this.getList}
-          remove={this.removeGame}
-          {...this.state}
-        />
-      </main>
+      <Router>
+        <main className="App">
+          <h1>Hello Wild Checkpoint 2</h1>
+          <Switch>
+            <Route exact path="/">
+              <GameList
+                getList={this.getList}
+                remove={this.removeGame}
+                {...this.state}
+              />
+            </Route>
+            <Route
+              exact
+              path="/:id/:slug"
+              render={(routeProps) => (
+                <Details {...routeProps} {...this.state} />
+              )}
+            />
+          </Switch>
+        </main>
+      </Router>
     );
   }
 }

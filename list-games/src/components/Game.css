@@ -34,3 +34,8 @@
   font-weight: bold;
   font-size: 1.2em;
 }
+
+.game .link {
+  text-decoration: none;
+  color: white;
+}
