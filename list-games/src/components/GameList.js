@@ -20,7 +20,6 @@ class GameList extends React.Component {
     axios
       .get('https://wild-games.herokuapp.com/api/v1')
       .then(response => {
-        console.log(response.data)
         this.setState({gameList: response.data, gameListIsLoading: false})
       })
   }
