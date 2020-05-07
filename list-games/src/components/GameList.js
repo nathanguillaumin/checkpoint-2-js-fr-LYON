@@ -6,8 +6,10 @@ class GameList extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      gameList: []
+      gameList: [],
+      gameListIsLoading: true
     }
+    this.getGames=this.getGames.bind(this);
   }
 
   componentDidMount() {
@@ -17,12 +19,18 @@ class GameList extends React.Component {
   getGames = () => {
     axios
       .get('https://wild-games.herokuapp.com/api/v1')
-      .then(response => this.setState({gameList: response.data}))
+      .then(response => {
+        console.log(response.data)
+        this.setState({gameList: response.data, gameListIsLoading: false})
+      })
   }
 
   render () {
     return (
-      <Game />
+      <div>
+        {this.state.gameListIsLoading ? <p>chargement des données</p> : <Game gameList={this.state.gameList} />}
+      </div>
+      
     )
   }
 }

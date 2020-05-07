@@ -1,12 +1,12 @@
 import React from 'react';
 
-class Game extends React.Component {
+const Game = ({ gameList }) => {
 
-  render() {
+  console.log(gameList)
     return (
-      <p>Game List : </p>
+      
+    <p>{gameList[0].name}</p>
     )
   }
-}
 
 export default Game;
