@@ -2,15 +2,15 @@ import React from 'react'
 import Game from './Game'
 
 const GameList = (props) => {
-  const gameList = props.gameList
   return (
     <div className='gameList'>
-      {gameList.map(game => {
-        return (
-          <Game key={game.name} game={game} backgroundImage={game.background_image} rating={game.rating} onDelete={props.handleDelete} />
-        )
-      }
-      )}
+      {props.gameList.map((game , index) =>
+        <Game 
+          key={index} 
+          name={game.name} 
+          img={game.img} 
+          rating={game.rating} 
+          deleteGame={this.deleteGame} />)}
     </div>
   )
 }

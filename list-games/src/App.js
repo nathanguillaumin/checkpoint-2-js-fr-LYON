@@ -21,8 +21,9 @@ class App extends Component {
       .then(data => {
         const games = data.map(game => {
           return {
+            id: game.id,
             name: game.name,
-            backgroundImage: game.background_image,
+            img: game.background_image,
             rating: game.rating
           }
         })
@@ -33,16 +34,14 @@ class App extends Component {
       })
   }
 
-  delete = (name) => {
-    this.setState(prevState => ({
-        data: prevState.data.filter(el => el != name )
-    }));
+  deleteGame = (id) => {
+    this.setState({games : [...this.state.games.filter(game => game.id !== id)]})
 }
 
   render () {
     return (
       <div className='App'>
-        <GameList gameList={this.state.games} handleDelete={this.delete} />
+        <GameList gameList={this.state.games} deleteGame={this.deleteGame} />
       </div>
     )
   }
