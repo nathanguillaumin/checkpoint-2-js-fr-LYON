@@ -8,12 +8,13 @@ export class Screenshots extends Component {
   render () {
     const id = this.props.match.params.id;
     const games = this.props.games;
-    const filterImages = games.find(game => game.id === parseInt(id));
-    console.log(filterImages)
+    console.log(games);
+    const filterImages = games.filter(game => game.id === parseInt(id)).map(g => g.short_screenshots);
+    console.log(filterImages);
     
     return (
         <div>
-
+            {filterImages.map((item, index) => <h3 key={index}>hello</h3>)}
         </div>
         /*
       <Container>
