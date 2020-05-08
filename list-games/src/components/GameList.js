@@ -24,7 +24,7 @@ export class GameList extends Component {
 
   handleDelete = ()=>{
     const { info, id } = this.state
-    const newInfo = [...info.slice(0,id)]
+    const newInfo = [...info.slice(0,id).reverse()]
 
     this.setState( {info : newInfo, id : id-1 } )
     console.log(id);
