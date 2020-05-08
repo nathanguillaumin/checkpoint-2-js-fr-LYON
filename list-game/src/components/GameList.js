@@ -38,7 +38,7 @@ class GameList extends React.Component {
   }
 
   handleRatedGames () {
-    const highRateGames = this.state.allGameList.filter(game => game.rating > 4.5);
+    const highRateGames = this.state.allGameList.filter(game => game.rating >= 4.5);
     this.setState({ highRateGames, allGames: !this.state.allGames });
   }
 

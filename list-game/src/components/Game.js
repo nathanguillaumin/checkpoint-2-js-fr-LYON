@@ -6,7 +6,7 @@ const Game = (props) => {
   return (
     <div className='game'>
       <h2>{game.name}</h2>
-      <p>Rating: {game.rating}/100</p>
+      <p>Rating: {game.rating}/5</p>
       <img className='image' src={game.background_image} alt={game.name} />
     </div>
   );
