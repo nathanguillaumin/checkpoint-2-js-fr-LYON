@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Game from './Game';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import GamePage from './GamePage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Screenshots from './Screenshots';
 
 class GameList extends React.Component {
   constructor (props) {
@@ -49,7 +49,7 @@ class GameList extends React.Component {
        const list = userList.map(game =>
       <>
         <Game game={game} />
-        {this.state.allGames && <button onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>}
+        {this.state.allGames && <button key={`${game.id}`} onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>}
       </>
       );
      
@@ -60,7 +60,9 @@ class GameList extends React.Component {
           <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'Best games' : 'All games'}</button>
           {list}
         </div>
-        <Route path='/:jeu/screenshots/:id' component={GamePage} />
+        <Switch>
+          <Route path='/:jeu/screenshots/:id' render={(props) => (<Screenshots {...this.state} {...props} />)} />
+        </Switch>
       </Router>
     );
   }

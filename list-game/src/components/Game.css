@@ -1,11 +1,15 @@
-.game {
+.games {
   width: 100%;
 }
 
-.game h2 {
+.games h2 {
   margin-top: 40px;
 }
 
-.game .image {
-  width: 500px;
+.games .image {
+  width: 400px;
+}
+
+.games-display {
+  display: none;
 }

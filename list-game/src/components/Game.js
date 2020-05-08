@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Game = (props) => {
   const game = props.game;
   return (
-    <div className='game'>
+    <div className='games'>
       <h2>{game.name}</h2>
       <p>Rating: {game.rating}/5</p>
       <img className='image' src={game.background_image} alt={game.name} />
