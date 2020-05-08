@@ -24,10 +24,15 @@ export default class App extends Component {
     });
   };
 
+  delGame = (name) =>{
+    // this.setState({games: [...this.state.games.filter(game => game.name !== name)]});
+    console.log(name)
+  }
+
   render() {
     return (
       <div className="App">
-        <GameList games={this.state.games} />
+        <GameList games={this.state.games} delGame={this.delGame}/>
       </div>
     );
   }
