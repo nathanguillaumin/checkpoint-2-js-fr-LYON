@@ -25,8 +25,7 @@ export default class App extends Component {
   };
 
   delGame = (name) =>{
-    // this.setState({games: [...this.state.games.filter(game => game.name !== name)]});
-    console.log(name)
+    this.setState({games: [...this.state.games.filter(game => game.name !== name)]});
   }
 
   render() {

@@ -1,14 +1,14 @@
 import React from 'react';
 import Game from './Game';
 
-export default function GameList ({games}, {delGame}) {
+function GameList (props) {
+  const games = props.games;
   return (
     <div>
-      {
-      games.map((game) => (
-      <Game key={game.id} {...game} delGame={delGame}/>
-      ))
-      }
-    </div> 
-  )
+      {games.map((game) =>
+        <Game key={game.name} {...game} delGame={props.delGame} />)}
+    </div>
+  );
 }
+
+export default GameList;
