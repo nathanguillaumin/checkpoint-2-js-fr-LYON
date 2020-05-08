@@ -1,13 +1,34 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
 import GameList from "./components/GameList";
 import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
-}
+export default class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      games: []
+    };
+  }
 
-export default App;
+  componentDidMount() {
+    this.getGames();
+  }
+
+  getGames = () => {
+    axios
+    .get('https://wild-games.herokuapp.com/api/v1')
+    .then((response) => {
+      this.setState({ games: response.data });
+    }, (error) => {
+      console.log(error);
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <GameList games={this.state.games} />
+      </div>
+    );
+  }
+}

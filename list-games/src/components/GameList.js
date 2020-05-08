@@ -1,9 +1,14 @@
 import React from 'react';
 import Game from './Game';
 
-export default function GameList () {
+export default function GameList ({games}) {
   return (
     <div>
-    </div>    
+      {
+      games.map((game) => (
+      <Game key={game.id} {...game}/>
+      ))
+      }
+    </div> 
   )
-  }
+}
