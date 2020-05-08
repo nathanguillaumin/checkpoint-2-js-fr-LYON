@@ -14,13 +14,11 @@ export class Footer extends Component {
 const headerStyle = {
   backgroundColor: '#333',
   color: 'red',
-  marginBottom: '40px',
+  marginTop: '40px',
   height: '15vh',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  position: 'absolute',
-  bottom: '0'
 };
 
 export default Footer;

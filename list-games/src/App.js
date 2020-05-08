@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
 class App extends React.Component {
   constructor (props) {
     super(props);
@@ -64,6 +65,7 @@ class App extends React.Component {
           <Route exact path='/jeu/screenshots/:id' games={games} 
           render={(props) => <Screenshots {...props} {...this.state} />} />
       </Switch>
+      <Footer />
       </Router>
     </div>
   );

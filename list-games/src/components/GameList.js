@@ -13,9 +13,9 @@ function GameList (props) {
 
 const gameListStyle = {
   display: 'flex',
-  flexDirection: 'column',
+  flexWrap: 'wrap',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 };
 
 export default GameList;
