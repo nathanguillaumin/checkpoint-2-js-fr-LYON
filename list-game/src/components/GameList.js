@@ -54,7 +54,7 @@ class GameList extends React.Component {
     return (
       <div>
         <h1>Welcome to the game list of a non-gamer guy!</h1>
-        <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'All games' : 'Best games'}</button>
+        <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'Best games' : 'All games'}</button>
         {list}
       </div>
     );
