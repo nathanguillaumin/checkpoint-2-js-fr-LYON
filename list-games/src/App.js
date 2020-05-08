@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GameList from './components/GameList';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Screenshots from './pages/Screenshots';
 import Home from './pages/Home';
 import axios from 'axios';
@@ -61,7 +62,7 @@ class App extends React.Component {
             />
           </Route>
           <Route exact path='/jeu/screenshots/:id' games={games} 
-          render={(props) => <Screenshots {...props} games={games} />} />
+          render={(props) => <Screenshots {...props} {...this.state} />} />
       </Switch>
       </Router>
     </div>
