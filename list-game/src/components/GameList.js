@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Game from './Game';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import GamePage from './GamePage';
 
 class GameList extends React.Component {
   constructor (props) {
@@ -52,11 +54,14 @@ class GameList extends React.Component {
       );
      
     return (
-      <div>
-        <h1>Welcome to the game list of a non-gamer guy!</h1>
-        <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'Best games' : 'All games'}</button>
-        {list}
-      </div>
+      <Router>
+        <div>
+          <h1>Welcome to the game list of a non-gamer guy!</h1>
+          <button onClick={() => this.handleRatedGames()}>{this.state.allGames ? 'Best games' : 'All games'}</button>
+          {list}
+        </div>
+        <Route path='/:jeu/screenshots/:id' component={GamePage} />
+      </Router>
     );
   }
 }

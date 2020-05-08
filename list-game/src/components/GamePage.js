@@ -6,7 +6,7 @@ const GamePage = (props) => {
   const params = props.match.params;
   return (
     <div>
-      <p>Game Id: <em>{params.gameId}</em></p>
+      <p>Game Id: <em>{params.id}</em></p>
       {/* <Link to='/'>Back to list</Link> */}
     </div>
   );
