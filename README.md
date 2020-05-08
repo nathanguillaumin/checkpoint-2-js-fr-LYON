@@ -22,7 +22,7 @@ The API is available on this url [https://wild-games.herokuapp.com/api/v1](https
 You can use either [axios](https://github.com/axios/axios) or [fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch) to recover the data.
 
 Think about `commit' regularly with an explicit message. For example: ``Create GameList and Game components``.
-
+_
 **Friendly Tip:** before starting, make the *component tree* and *wireframes*! :)
 
 - Create a new React project named **list-games** using `create-react-app`.
