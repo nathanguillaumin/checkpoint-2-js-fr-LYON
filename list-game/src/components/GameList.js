@@ -3,6 +3,7 @@ import axios from 'axios';
 import Game from './Game';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Screenshots from './Screenshots';
+import App from '../App';
 
 class GameList extends React.Component {
   constructor (props) {
@@ -45,12 +46,6 @@ class GameList extends React.Component {
     }
   };
 
-  getData2 = async () => {
-    let res = await axios.get('https://wild-games.herokuapp.com/api/v1');
-    const allGameList = res.data;
-    this.setState({ allGameList });
-  };
-
   componentDidMount () {
     this.getData();
   }
@@ -70,7 +65,10 @@ class GameList extends React.Component {
    render () {
      const userList = (this.state.allGames ? this.state.allGameList : this.state.highRateGames)
        const list = userList.map(game =>
-        <Game game={game} onClick={this.handleDeleteGame} />
+        <>
+          <Game game={game} onClick={this.handleDeleteGame} />
+          {this.state.allGames && <button key={`${game.id}`} onClick={() => this.handleDeleteGame(game.id)}>Delete {game.name}</button>}
+        </>
       );
      
     return (
@@ -83,7 +81,12 @@ class GameList extends React.Component {
             {list}
           </div>
           <Switch>
-            <Route path='/:jeu/screenshots/:id' render={(props) => (<Screenshots {...this.state} {...props} />)} />
+            <Route exact path='/' Component={App} />
+
+            <Route
+              exact path='/jeu/screenshots/:id'
+              render={(props) => (<Screenshots {...this.state} {...props} />)}
+            />
           </Switch>
         </Router>
         )}
