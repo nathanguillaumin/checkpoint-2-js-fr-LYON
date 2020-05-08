@@ -10,6 +10,7 @@ export default class App extends Component {
       filterGames : false,
       buttonText: 'Best games',
     };
+    this.gameListRef = this.state.games;
   }
 
   componentDidMount() {
@@ -40,12 +41,11 @@ export default class App extends Component {
       this.setState({ filterGames: true });
       this.setState({ buttonText: 'Best games' });
     } else {
-      this.setState({ quoteList: this.quoteListRef });
+      this.setState({ games: this.gameListRef });
       this.setState({ filterGames: false });
       this.setState({ buttonText: 'All games' });
     }
   }
-
 
   render() {
     return (
@@ -53,8 +53,8 @@ export default class App extends Component {
         <button onClick={this.bestGamesOnClick}>
             {this.state.buttonText}
         </button>
-        {this.state.games.map((game, index) => (
-          <div key={index}>
+        {this.state.games.map(() => (
+          <div>
             <GameList games={this.state.games} delGame={this.delGame}/>
           </div>
         ))}
